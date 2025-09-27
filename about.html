@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Us • IronCore Fitness</title>
+  <style>
+    :root{
+      --bg:#0b0f14;--card:#121823;--muted:#9fb0c0;--text:#eaf1f7;--brand:#6ae3ff;--brand2:#7cffb2;--acc:#ffce6a;
+      --rad:18px;--pad:1.25rem;--shadow:0 10px 30px rgba(0,0,0,.35)
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;font:16px/1.6 system-ui;-webkit-font-smoothing:antialiased;
+      color:var(--text); background:var(--bg)
+    }
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1000px;margin:0 auto;padding:0 1rem}
+    header{
+      position:sticky;top:0;z-index:50;backdrop-filter:saturate(1.2) blur(8px);
+      background:rgba(11,15,20,.9);border-bottom:1px solid rgba(255,255,255,.06)
+    }
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:.75rem 0}
+    .brand{display:flex;gap:.6rem;align-items:center;font-weight:800;letter-spacing:.5px}
+    .logo{width:36px;height:36px;border-radius:10px;background:
+      conic-gradient(from 200deg,var(--brand),var(--brand2),var(--acc),var(--brand))}
+    .btn{display:inline-block;border:1px solid rgba(255,255,255,.14);
+      padding:.6rem 1rem;border-radius:999px}
+    main{padding:4rem 0}
+    h1,h2{margin:0 0 1rem}
+    .section{margin-bottom:3rem}
+    .card{
+      background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:var(--rad);
+      padding:var(--pad);
+      box-shadow:var(--shadow)
+    }
+    .grid{display:grid;gap:1.2rem}
+    @media(min-width:720px){
+      .grid.two{grid-template-columns:1fr 1fr}
+      .grid.three{grid-template-columns:repeat(3,1fr)}
+    }
+    footer{padding:2rem 0;color:var(--muted);text-align:center;
+      border-top:1px solid rgba(255,255,255,.06)}
+  </style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <a class="brand" href="index.html"><div class="logo"></div>IronCore Fitness</a>
+    <a class="btn" href="index.html">Home</a>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <h1>About IronCore Fitness</h1>
+
+    <!-- Our Story -->
+    <section class="section card">
+      <h2>Our Story</h2>
+      <p>
+        IronCore Fitness was founded with one mission: to create a space where anyone—regardless of
+        experience—can train smarter, feel stronger, and belong to a supportive community.
+      </p>
+      <p>
+        What started as a small studio with a few kettlebells has grown into a full-scale performance
+        gym with world-class facilities, expert coaching, and members who push each other to new heights.
+      </p>
+    </section>
+
+    <!-- Mission & Values -->
+    <section class="section card">
+      <h2>Our Mission</h2>
+      <p>
+        We believe fitness is more than physical strength—it's confidence, resilience, and longevity.
+        Our goal is to empower every member through:
+      </p>
+      <ul style="margin-top:.5rem;padding-left:1.2rem">
+        <li>Science-based training programs</li>
+        <li>Inclusive and motivating community culture</li>
+        <li>Certified, passionate coaches</li>
+        <li>State-of-the-art recovery and performance tools</li>
+      </ul>
+    </section>
+
+    <!-- Team -->
+    <section class="section">
+      <h2>Meet the Team</h2>
+      <div class="grid three">
+        <div class="card">
+          <h3>Asha Perera</h3>
+          <p class="sub">Founder & Head Coach</p>
+          <p>Asha launched IronCore after 10+ years as a strength and conditioning specialist.</p>
+        </div>
+        <div class="card">
+          <h3>Ravindu Jay</h3>
+          <p class="sub">Performance & HIIT Coach</p>
+          <p>Ravindu combines athletic conditioning with functional movement training.</p>
+        </div>
+        <div class="card">
+          <h3>Mina Fernando</h3>
+          <p class="sub">Mobility & Wellness Lead</p>
+          <p>Mina focuses on flexibility, breathwork, and injury prevention.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Facilities -->
+    <section class="section card">
+      <h2>Our Facilities</h2>
+      <p>
+        We’ve designed IronCore to give you every advantage in your training journey:
+      </p>
+      <ul style="margin-top:.5rem;padding-left:1.2rem">
+        <li>Full free-weights and powerlifting zone</li>
+        <li>HIIT studio and functional turf area</li>
+        <li>Sauna & ice bath recovery suite</li>
+        <li>Yoga and mobility rooms</li>
+        <li>24/7 member access</li>
+      </ul>
+    </section>
+  </div>
+</main>
+
+<footer>
+  © <span id="year"></span> IronCore Fitness — All rights reserved.
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
