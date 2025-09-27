@@ -209,37 +209,74 @@
     </div>
   </section>
 
-  <!-- Pricing -->
-  <section id="pricing" class="container">
-    <h2>Memberships</h2>
-    <p class="sub">Simple plans. No hidden fees. Cancel anytime.</p>
-    <div class="grid cols-3">
-      <div class="card">
-        <span class="pill">Starter</span>
-        <div class="price"><strong>$19</strong><span>/wk</span></div>
-        <ul class="features">
-          <li>Gym access (off-peak)</li><li>2 classes / week</li><li>Locker access</li>
-        </ul>
-        <a class="btn primary" href="#join">Choose Starter</a>
+ <!-- Pricing -->
+<section id="pricing" class="container" style="padding:4rem 0; text-align:center;">
+  <h2 style="font-size:2.5rem; margin-bottom:0.5rem;">Memberships</h2>
+  <p class="sub" style="margin-bottom:3rem;">Simple plans. No hidden fees. Cancel anytime.</p>
+  
+  <div class="grid cols-3" style="gap:2rem; align-items:start;">
+    
+    <!-- Starter Plan -->
+    <div class="card" style="position:relative; padding:2rem; border-radius:20px; background:linear-gradient(145deg,#0d1621,#131c28); box-shadow:0 15px 30px rgba(0,0,0,0.5); transition:all 0.3s; cursor:pointer;"
+         onmouseover="this.style.transform='translateY(-15px)'; this.style.boxShadow='0 20px 40px rgba(0,0,0,0.6)';"
+         onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 15px 30px rgba(0,0,0,0.5)';">
+      <div style="font-size:3rem; margin-bottom:1rem;">🏋️</div>
+      <span class="pill" style="background:linear-gradient(135deg,#6ae3ff,#7cffb2); color:#062026; padding:.4rem 1rem; font-weight:700;">Starter</span>
+      <div class="price" style="margin:1rem 0; font-size:2.2rem; font-weight:800;">
+        $19 <span style="font-size:1rem; color:var(--muted);">/wk</span>
       </div>
-      <div class="card">
-        <span class="pill">Unlimited</span>
-        <div class="price"><strong>$29</strong><span>/wk</span></div>
-        <ul class="features">
-          <li>24/7 gym access</li><li>Unlimited classes</li><li>Sauna & ice bath</li>
-        </ul>
-        <a class="btn primary" href="#join">Choose Unlimited</a>
-      </div>
-      <div class="card">
-        <span class="pill">Personal</span>
-        <div class="price"><strong>$59</strong><span>/wk</span></div>
-        <ul class="features">
-          <li>1:1 coaching (1x/week)</li><li>Custom program</li><li>Monthly body scan</li>
-        </ul>
-        <a class="btn primary" href="#join">Choose Personal</a>
-      </div>
+      <ul class="features" style="text-align:left; margin:1rem 0 2rem; padding-left:1rem;">
+        <li>Gym access (off-peak)</li>
+        <li>2 classes / week</li>
+        <li>Locker access</li>
+      </ul>
+      <a class="btn primary" href="#join" style="display:inline-block; padding:.8rem 1.5rem; border-radius:999px; background:linear-gradient(90deg,#6ae3ff,#7cffb2); color:#062026; font-weight:700; transition:all 0.3s;"
+         onmouseover="this.style.transform='scale(1.1)';"
+         onmouseout="this.style.transform='scale(1)';">Choose Starter</a>
     </div>
-  </section>
+
+    <!-- Unlimited Plan (Most Popular) -->
+    <div class="card" style="position:relative; padding:2rem; border-radius:20px; background:linear-gradient(145deg,#0d1621,#131c28); box-shadow:0 20px 40px rgba(0,0,0,0.6); transition:all 0.3s; cursor:pointer;"
+         onmouseover="this.style.transform='translateY(-15px)'; this.style.boxShadow='0 25px 50px rgba(0,0,0,0.7)';"
+         onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 20px 40px rgba(0,0,0,0.6)';">
+      <div style="position:absolute; top:-10px; right:-10px; background:#ffce6a; color:#062026; padding:.5rem 1rem; border-radius:12px; font-weight:700;">Most Popular</div>
+      <div style="font-size:3rem; margin-bottom:1rem;">🔥</div>
+      <span class="pill" style="background:linear-gradient(135deg,#ffce6a,#7cffb2); color:#062026; padding:.4rem 1rem; font-weight:700;">Unlimited</span>
+      <div class="price" style="margin:1rem 0; font-size:2.2rem; font-weight:800;">
+        $29 <span style="font-size:1rem; color:var(--muted);">/wk</span>
+      </div>
+      <ul class="features" style="text-align:left; margin:1rem 0 2rem; padding-left:1rem;">
+        <li>24/7 gym access</li>
+        <li>Unlimited classes</li>
+        <li>Sauna & ice bath</li>
+      </ul>
+      <a class="btn primary" href="#join" style="display:inline-block; padding:.8rem 1.5rem; border-radius:999px; background:linear-gradient(90deg,#ffce6a,#7cffb2); color:#062026; font-weight:700; transition:all 0.3s;"
+         onmouseover="this.style.transform='scale(1.1)';"
+         onmouseout="this.style.transform='scale(1)';">Choose Unlimited</a>
+    </div>
+
+    <!-- Personal Plan -->
+    <div class="card" style="position:relative; padding:2rem; border-radius:20px; background:linear-gradient(145deg,#0d1621,#131c28); box-shadow:0 15px 30px rgba(0,0,0,0.5); transition:all 0.3s; cursor:pointer;"
+         onmouseover="this.style.transform='translateY(-15px)'; this.style.boxShadow='0 20px 40px rgba(0,0,0,0.6)';"
+         onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 15px 30px rgba(0,0,0,0.5)';">
+      <div style="font-size:3rem; margin-bottom:1rem;">💪</div>
+      <span class="pill" style="background:linear-gradient(135deg,#6ae3ff,#ffce6a); color:#062026; padding:.4rem 1rem; font-weight:700;">Personal</span>
+      <div class="price" style="margin:1rem 0; font-size:2.2rem; font-weight:800;">
+        $59 <span style="font-size:1rem; color:var(--muted);">/wk</span>
+      </div>
+      <ul class="features" style="text-align:left; margin:1rem 0 2rem; padding-left:1rem;">
+        <li>1:1 coaching (1x/week)</li>
+        <li>Custom program</li>
+        <li>Monthly body scan</li>
+      </ul>
+      <a class="btn primary" href="#join" style="display:inline-block; padding:.8rem 1.5rem; border-radius:999px; background:linear-gradient(90deg,#6ae3ff,#ffce6a); color:#062026; font-weight:700; transition:all 0.3s;"
+         onmouseover="this.style.transform='scale(1.1)';"
+         onmouseout="this.style.transform='scale(1)';">Choose Personal</a>
+    </div>
+
+  </div>
+</section>
+
 
   <!-- Timetable -->
   <section id="timetable" class="container">
