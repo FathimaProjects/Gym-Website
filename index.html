@@ -1,1 +1,387 @@
-git status
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IronCore Fitness — Train Different</title>
+  <meta name="description" content="IronCore Fitness: modern gym with classes, personal training, and flexible memberships." />
+  <style>
+    :root{
+      --bg:#0b0f14;--card:#121823;--muted:#9fb0c0;--text:#eaf1f7;--brand:#6ae3ff;--brand2:#7cffb2;--acc:#ffce6a;
+      --rad:18px;--pad:1.25rem;--shadow:0 10px 30px rgba(0,0,0,.35)
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial;
+      color:var(--text); background:
+        radial-gradient(1200px 600px at 80% -10%, #203047 0%, transparent 60%),
+        radial-gradient(1200px 600px at 10% 10%, #182538 0%, transparent 55%),
+        var(--bg);
+      scroll-behavior:smooth;
+    }
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1100px;margin:0 auto;padding:0 1rem}
+    /* Header */
+    header{
+      position:sticky;top:0;z-index:50;backdrop-filter:saturate(1.2) blur(8px);
+      background:linear-gradient(180deg, rgba(11,15,20,.8), rgba(11,15,20,.2));
+      border-bottom:1px solid rgba(255,255,255,.06)
+    }
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:.75rem 0}
+    .brand{display:flex;gap:.6rem;align-items:center;font-weight:800;letter-spacing:.5px}
+    .logo{width:36px;height:36px;border-radius:10px;background:
+      conic-gradient(from 200deg at 50% 50%, var(--brand), var(--brand2), var(--acc), var(--brand));
+      box-shadow:inset 0 0 30px rgba(255,255,255,.25), 0 8px 20px rgba(0,0,0,.35)}
+    nav ul{display:flex;gap:1rem;list-style:none;margin:0;padding:0}
+    .btn{display:inline-block;border:1px solid rgba(255,255,255,.14);padding:.6rem 1rem;border-radius:999px}
+    .btn.primary{border:none;background:linear-gradient(90deg,var(--brand),var(--brand2)); color:#062026; font-weight:700}
+    .mobile-toggle{display:none}
+    /* Hero */
+    .hero{padding:6rem 0 4rem; position:relative; overflow:hidden}
+    .hero h1{font-size:clamp(2rem,6vw,3.2rem);line-height:1.05;margin:.2rem 0 .8rem}
+    .hero p{color:var(--muted);max-width:680px}
+    .hero .cta{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1rem}
+    .glow{
+      position:absolute;inset:-20% -10% auto auto; height:420px; width:420px; border-radius:50%;
+      background:radial-gradient(closest-side, rgba(122,255,214,.35), transparent 70%)
+    }
+    /* Sections */
+    section{padding:4rem 0;border-top:1px solid rgba(255,255,255,.06)}
+    h2{font-size:clamp(1.4rem,3.5vw,2rem);margin:0 0 1.2rem}
+    .sub{color:var(--muted);margin:-.6rem 0 2rem}
+    .grid{display:grid;gap:1rem}
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.08); border-radius:var(--rad); padding:var(--pad); box-shadow:var(--shadow)
+    }
+    .pill{font-size:.8rem;color:#062026;background:linear-gradient(90deg,var(--brand),var(--brand2));
+      display:inline-block;padding:.25rem .6rem;border-radius:999px;font-weight:700}
+    /* Classes */
+    .class{display:flex;gap:1rem;align-items:center}
+    .icon{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;
+      background:linear-gradient(135deg, rgba(255,255,255,.12), rgba(255,255,255,.04)); border:1px solid rgba(255,255,255,.1)}
+    /* Coaches */
+    .coach{display:flex;gap:1rem;align-items:center}
+    .avatar{width:56px;height:56px;border-radius:50%;background:#2a3546}
+    /* Pricing */
+    .price{display:flex;gap:.4rem;align-items:baseline}
+    .price strong{font-size:2rem}
+    .features{margin:.6rem 0 1rem;padding-left:1.1rem}
+    /* Timetable */
+    table{width:100%;border-collapse:separate;border-spacing:0 .5rem}
+    th,td{padding:.8rem 1rem;text-align:left}
+    thead th{color:var(--muted);font-weight:600}
+    tbody tr{background:rgba(255,255,255,.04)}
+    tbody tr td:first-child{border-radius:10px 0 0 10px}
+    tbody tr td:last-child{border-radius:0 10px 10px 0}
+    /* Gallery */
+    .gallery{display:grid;grid-template-columns:repeat(6,1fr);gap:.5rem}
+    .gallery div{aspect-ratio:1/1;border-radius:14px;background:#1a2230}
+    /* Testimonials */
+    blockquote{margin:0;font-style:italic;color:#dbe7f3}
+    blockquote footer{margin-top:.6rem;color:var(--muted)}
+    /* FAQ */
+    details{background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); border-radius:12px; padding:1rem}
+    details+details{margin-top:.6rem}
+    summary{cursor:pointer;font-weight:600}
+    /* Contact */
+    form{display:grid;gap:.8rem}
+    input,textarea,select{
+      width:100%; padding:.8rem 1rem; border-radius:12px; border:1px solid rgba(255,255,255,.12);
+      background:#0e141c; color:var(--text)
+    }
+    input::placeholder,textarea::placeholder{color:#8193a7}
+    .two{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+    /* Footer */
+    footer{padding:2.5rem 0;color:var(--muted); text-align:center;border-top:1px solid rgba(255,255,255,.06)}
+    /* Layout queries */
+    @media (min-width:720px){
+      .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+      .grid.cols-4{grid-template-columns:repeat(4,1fr)}
+      .hero-wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:2rem;align-items:center}
+    }
+    @media (max-width:880px){
+      nav ul{display:none; position:absolute; top:64px; right:1rem; background:#0e141c; border:1px solid rgba(255,255,255,.1);
+        border-radius:14px; padding:.6rem; width:min(85vw,320px); box-shadow:var(--shadow)}
+      nav ul.open{display:block}
+      .mobile-toggle{display:inline-flex; border:1px solid rgba(255,255,255,.18); border-radius:10px; padding:.4rem .6rem; gap:.4rem; align-items:center}
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header aria-label="Top Navigation">
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="IronCore Fitness Home">
+        <div class="logo" aria-hidden="true"></div><span>IronCore Fitness</span>
+      </a>
+      <nav>
+        <button class="mobile-toggle" aria-expanded="false" aria-controls="navMenu" id="menuBtn">☰ Menu</button>
+        <ul id="navMenu" role="menu" aria-label="Primary">
+          <li role="none"><a role="menuitem" class="btn" href="#classes">Classes</a></li>
+          <li role="none"><a role="menuitem" class="btn" href="#coaches">Coaches</a></li>
+          <li role="none"><a role="menuitem" class="btn" href="#pricing">Pricing</a></li>
+          <li role="none"><a role="menuitem" class="btn" href="#timetable">Timetable</a></li>
+          <li role="none"><a role="menuitem" class="btn" href="#contact">Contact</a></li>
+          <li role="none"><a role="menuitem" class="btn primary" href="#join">Join Now</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <main id="home" class="hero">
+    <div class="glow" aria-hidden="true"></div>
+    <div class="container hero-wrap">
+      <div>
+        <span class="pill">Open 5:00–23:00 • 7 Days</span>
+        <h1>Train Different. Stronger Body, Sharper Mind.</h1>
+        <p>State-of-the-art equipment, science-backed coaching, and energizing classes. Whether you’re starting out or leveling up, we’ve got your corner.</p>
+        <div class="cta">
+          <a class="btn primary" href="#pricing">See Memberships</a>
+          <a class="btn" href="#classes">Explore Classes</a>
+        </div>
+      </div>
+      <div class="card" aria-label="Quick stats">
+        <h3 style="margin-top:0">Today’s Snapshot</h3>
+        <ul style="margin:.2rem 0 0; padding-left:1.1rem; color:var(--muted)">
+          <li>12 Group classes on the schedule</li>
+          <li>4 Certified personal trainers on deck</li>
+          <li>Recovery: ice bath • sauna • stretch zone</li>
+        </ul>
+        <div style="margin-top:1rem">
+          <a class="btn primary" href="#join">Book a Free Trial</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Classes -->
+  <section id="classes" class="container">
+    <h2>Popular Classes</h2>
+    <p class="sub">Build strength, boost endurance, or improve mobility—pick your path.</p>
+    <div class="grid cols-3">
+      <article class="card class">
+        <div class="icon">🏋️</div>
+        <div><h3 style="margin:.2rem 0">Strength 45</h3><p class="sub">Compound lifts + accessory work for total-body power.</p></div>
+      </article>
+      <article class="card class">
+        <div class="icon">🔥</div>
+        <div><h3 style="margin:.2rem 0">HIIT Burn</h3><p class="sub">Short, intense intervals to fire up metabolism.</p></div>
+      </article>
+      <article class="card class">
+        <div class="icon">🧘</div>
+        <div><h3 style="margin:.2rem 0">Mobility Flow</h3><p class="sub">Range-of-motion work to move better and feel great.</p></div>
+      </article>
+      <article class="card class">
+        <div class="icon">🥊</div>
+        <div><h3 style="margin:.2rem 0">BoxFit</h3><p class="sub">Pad work and drills to build speed and stamina.</p></div>
+      </article>
+      <article class="card class">
+        <div class="icon">🚴</div>
+        <div><h3 style="margin:.2rem 0">Cycle Rhythm</h3><p class="sub">Beat-driven rides for epic cardio sessions.</p></div>
+      </article>
+      <article class="card class">
+        <div class="icon">🧊</div>
+        <div><h3 style="margin:.2rem 0">Recovery Lab</h3><p class="sub">Guided stretch, breath, and cold exposure.</p></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Coaches -->
+  <section id="coaches" class="container">
+    <h2>Meet the Coaches</h2>
+    <p class="sub">Certified, experienced, and obsessed with your progress.</p>
+    <div class="grid cols-3">
+      <div class="card coach">
+        <div class="avatar" aria-hidden="true"></div>
+        <div><strong>Asha Perera</strong><p class="sub">Strength & Conditioning • CSCS</p></div>
+      </div>
+      <div class="card coach">
+        <div class="avatar" aria-hidden="true"></div>
+        <div><strong>Ravindu Jay</strong><p class="sub">Metcon & HIIT • Precision Nutrition L1</p></div>
+      </div>
+      <div class="card coach">
+        <div class="avatar" aria-hidden="true"></div>
+        <div><strong>Mina Fernando</strong><p class="sub">Mobility & Yoga • RYT-500</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" class="container">
+    <h2>Memberships</h2>
+    <p class="sub">Simple plans. No hidden fees. Cancel anytime.</p>
+    <div class="grid cols-3">
+      <div class="card">
+        <span class="pill">Starter</span>
+        <div class="price"><strong>$19</strong><span>/wk</span></div>
+        <ul class="features">
+          <li>Gym access (off-peak)</li><li>2 classes / week</li><li>Locker access</li>
+        </ul>
+        <a class="btn primary" href="#join">Choose Starter</a>
+      </div>
+      <div class="card">
+        <span class="pill">Unlimited</span>
+        <div class="price"><strong>$29</strong><span>/wk</span></div>
+        <ul class="features">
+          <li>24/7 gym access</li><li>Unlimited classes</li><li>Sauna & ice bath</li>
+        </ul>
+        <a class="btn primary" href="#join">Choose Unlimited</a>
+      </div>
+      <div class="card">
+        <span class="pill">Personal</span>
+        <div class="price"><strong>$59</strong><span>/wk</span></div>
+        <ul class="features">
+          <li>1:1 coaching (1x/week)</li><li>Custom program</li><li>Monthly body scan</li>
+        </ul>
+        <a class="btn primary" href="#join">Choose Personal</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timetable -->
+  <section id="timetable" class="container">
+    <h2>Weekly Timetable</h2>
+    <p class="sub">Tap a class in the app to book your spot.</p>
+    <div class="card">
+      <table aria-describedby="timetable-note">
+        <thead>
+          <tr><th>Time</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>06:00</td><td>Cycle Rhythm</td><td></td><td>Strength 45</td><td></td><td>HIIT Burn</td><td>Mobility</td></tr>
+          <tr><td>09:00</td><td></td><td>Mobility</td><td></td><td>BoxFit</td><td></td><td>Strength 45</td></tr>
+          <tr><td>17:30</td><td>HIIT Burn</td><td>Strength 45</td><td>Cycle Rhythm</td><td>Mobility</td><td>BoxFit</td><td></td></tr>
+          <tr><td>19:00</td><td>BoxFit</td><td></td><td>HIIT Burn</td><td></td><td>Strength 45</td><td>Cycle Rhythm</td></tr>
+        </tbody>
+      </table>
+      <p id="timetable-note" class="sub" style="margin:.4rem 0 0">Public holidays may affect hours.</p>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="container" aria-label="Gallery">
+    <h2>Inside the Gym</h2>
+    <div class="gallery" role="list">
+      <div role="listitem" class="card" aria-label="Free weights zone"></div>
+      <div role="listitem" class="card" aria-label="Cardio area"></div>
+      <div role="listitem" class="card" aria-label="Functional turf"></div>
+      <div role="listitem" class="card" aria-label="Studio"></div>
+      <div role="listitem" class="card" aria-label="Sauna"></div>
+      <div role="listitem" class="card" aria-label="Ice bath"></div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="container">
+    <h2>Member Stories</h2>
+    <div class="grid cols-3">
+      <div class="card">
+        <blockquote>
+          “Dropped 8kg and hit my first pull-up. The coaching is next level.”
+          <footer>— H. Silva</footer>
+        </blockquote>
+      </div>
+      <div class="card">
+        <blockquote>
+          “I come for the workouts, stay for the community. Love the vibe.”
+          <footer>— M. Fernando</footer>
+        </blockquote>
+      </div>
+      <div class="card">
+        <blockquote>
+          “The recovery area is a game changer after heavy leg days.”
+          <footer>— R. Jayasekara</footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="container">
+    <h2>FAQ</h2>
+    <details>
+      <summary>Do you offer a free trial?</summary>
+      <p>Yes—book a complimentary session via the “Join Now” button.</p>
+    </details>
+    <details>
+      <summary>Can I pause my membership?</summary>
+      <p>Absolutely. Pause up to 8 weeks per year with no fees.</p>
+    </details>
+    <details>
+      <summary>Do you have personal training?</summary>
+      <p>Yes—our Personal plan includes weekly 1:1 sessions and custom programming.</p>
+    </details>
+  </section>
+
+  <!-- Contact / Join -->
+  <section id="join" class="container">
+    <h2>Join / Contact</h2>
+    <p class="sub">Have questions or ready to start? Send us a note and we’ll get back within one business day.</p>
+    <div class="grid cols-3">
+      <form class="card" aria-label="Contact form" onsubmit="event.preventDefault(); alert('Thanks! We will contact you shortly.');">
+        <div class="two">
+          <label>
+            <span class="sub">First name</span>
+            <input required placeholder="Jane" />
+          </label>
+          <label>
+            <span class="sub">Last name</span>
+            <input required placeholder="Doe" />
+          </label>
+        </div>
+        <label>
+          <span class="sub">Email</span>
+          <input type="email" required placeholder="you@example.com" />
+        </label>
+        <label>
+          <span class="sub">Interested in</span>
+          <select>
+            <option>Starter</option>
+            <option>Unlimited</option>
+            <option>Personal Training</option>
+            <option>Day Pass</option>
+          </select>
+        </label>
+        <label>
+          <span class="sub">Message (optional)</span>
+          <textarea rows="4" placeholder="Goals, preferred times, injuries, etc."></textarea>
+        </label>
+        <button class="btn primary" type="submit">Send</button>
+      </form>
+      <div class="card" style="grid-column: span 2">
+        <h3 style="margin-top:0">Visit Us</h3>
+        <p class="sub">123 Fitness Avenue, Colombo</p>
+        <p class="sub">Open daily • 5:00–23:00</p>
+        <p class="sub">+94 11 123 4567 • hello@ironcore.fit</p>
+        <div style="height:280px;border-radius:14px;background:#0e141c;border:1px solid rgba(255,255,255,.12);display:grid;place-items:center">
+          <span class="sub">Map placeholder</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      © <span id="year"></span> IronCore Fitness — All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const navMenu = document.getElementById('navMenu');
+    menuBtn?.addEventListener('click', () => {
+      const open = navMenu.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    // Close on link click (mobile)
+    navMenu?.querySelectorAll('a').forEach(a => a.addEventListener('click',()=>navMenu.classList.remove('open')));
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
